@@ -1,21 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
-  //   useEffect(() => {
-  //     const dropdown = document.querySelectorAll(".dropdown");
-  //     const org = document.querySelector(".org-dropdown");
-  //     dropdown.forEach((item) => {
-  //       item.addEventListener("click", (e) => {
-  //         console.log(e.target.textContent);
-
-  //         if (e.target.textContent === "Organisation") {
-  //           console.log("first");
-  //           org.classList.toggle("org-open");
-  //         }
-  //       });
-  //     });
-  //   }, []);
-
   const [dropdown, setDropdown] = useState("org-dropdown");
   const [empDropdown, setEmpDropdown] = useState("org-dropdown");
   const [perDropdown, setPerDropdown] = useState("org-dropdown");
@@ -77,6 +63,8 @@ const SideBar = () => {
     }
   };
 
+  const navigation = useNavigate();
+
   return (
     <>
       <div className="sidebar-container">
@@ -87,13 +75,19 @@ const SideBar = () => {
           Organisation<i className="fa-solid fa-caret-down"></i>
         </p>
         <div className={dropdown}>
-          <p>Company</p>
-          <p>Location</p>
-          <p>Department</p>
-          <p>Designation</p>
-          <p>Announcements</p>
-          <p>Policies</p>
-          <p>Expenses</p>
+          <p onClick={() => navigation("/organisation/company")}>Company</p>
+          <p onClick={() => navigation("/organisation/location")}>Location</p>
+          <p onClick={() => navigation("/organisation/department")}>
+            Department
+          </p>
+          <p onClick={() => navigation("/organisation/designation")}>
+            Designation
+          </p>
+          <p onClick={() => navigation("/organisation/announcements")}>
+            Announcements
+          </p>
+          <p onClick={() => navigation("/organisation/policies")}>Policies</p>
+          <p onClick={() => navigation("/organisation/expenses")}>Expenses</p>
         </div>
         <p id="dropdown" onClick={handleEmpclick}>
           Employees<i className="fa-solid fa-caret-down"></i>

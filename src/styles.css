@@ -198,3 +198,7 @@ html {
 .org-dropdown p:hover {
   background-color: #203a43;
 }
+
+.company-table {
+  margin: 50px;
+}
